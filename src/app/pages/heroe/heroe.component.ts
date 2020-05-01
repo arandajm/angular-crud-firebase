@@ -20,13 +20,18 @@ export class HeroeComponent implements OnInit {
     if (heroeForm.invalid) {
       return;
     }
-    this._heroeService.save(this.heroe).subscribe(
-      (heroe) => {
-        this.heroe = heroe;
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    if (this.heroe.id) {
+      // Update hero
+      this._heroeService.update(this.heroe).subscribe(
+        (resp) => console.log(resp),
+        (err) => console.log(err)
+      );
+    } else {
+      // Create hero
+      this._heroeService.save(this.heroe).subscribe(
+        (heroe) => (this.heroe = heroe),
+        (err) => console.log(err)
+      );
+    }
   }
 }

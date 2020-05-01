@@ -12,11 +12,11 @@ export class HeroesService {
 
   getUrl(query: string) {
     const url: string = 'https://login-app-a854e.firebaseio.com';
-    return `${url}/${query}.json`;
+    return `${url}${query}.json`;
   }
 
   save(heroe: HeroeModel) {
-    return this.http.post(this.getUrl('heroes'), heroe).pipe(
+    return this.http.post(this.getUrl('/heroes'), heroe).pipe(
       map((element: any) => {
         // Save id into hero and return it
         heroe.id = element.name;
@@ -24,5 +24,12 @@ export class HeroesService {
         return heroe;
       })
     );
+  }
+
+  update(heroe: HeroeModel) {
+    //Copy hero and delete id before update it.
+    const newHero = { ...heroe };
+    delete newHero.id;
+    return this.http.put(this.getUrl(`/heroes/${heroe.id}`), newHero);
   }
 }
