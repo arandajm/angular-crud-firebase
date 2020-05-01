@@ -31,7 +31,7 @@
                     <span *ngIf="!heroe.vivo" class="badge badge-danger">Muerto</span>
                 </td>
                 <td>
-                    <button class="btn btn-secondary">
+                    <button class="btn btn-secondary" [routerLink]="['/heroe', heroe.id]">
             <i class="fa fa-pen"></i>
           </button>
                     <button class="btn btn-danger ml-1">

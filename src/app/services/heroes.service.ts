@@ -39,8 +39,16 @@ export class HeroesService {
       .pipe(map((resp) => this.transformHeroData(resp)));
   }
 
+  getById(id: string) {
+    return this.http
+      .get(this.getUrl(`/heroes/${id}`))
+      .pipe(map((resp) => resp));
+  }
+
   private transformHeroData(heroesObj) {
     let heroArray: HeroeModel[] = [];
+
+    if (heroesObj === null) return [];
     // get an array with the object keys
     Object.keys(heroesObj).forEach((key) => {
       let hero: HeroeModel = heroesObj[key];
