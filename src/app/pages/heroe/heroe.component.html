@@ -11,7 +11,7 @@
 
 <div class="row mt-3">
     <div class="col">
-        <form>
+        <form #heroeForm="ngForm" (ngSubmit)="guardar(heroeForm)">
             <div class="form-group">
                 <label>Firebase ID</label>
                 <input type="text" class="form-control" disabled="disabled" placeholder="Firebase ID">
@@ -19,20 +19,20 @@
             </div>
             <div class="form-group">
                 <label>Nombre del Héroe</label>
-                <input type="text" class="form-control" placeholder="Nombre del Héroe" required>
+                <input type="text" class="form-control" placeholder="Nombre del Héroe" [(ngModel)]="heroe.nombre" name="nombre" #nombre="ngModel" required>
             </div>
             <div class="form-group">
                 <label>Poder del Héroe</label>
-                <input type="text" class="form-control" placeholder="Poder del Héroe">
+                <input type="text" class="form-control" placeholder="Poder del Héroe" [(ngModel)]="heroe.poder" name="poder" #poder="ngModel">
             </div>
             <div class="form-group">
                 <label>Estado</label>
                 <br>
-                <button class="btn btn-outline-success w-50" type="button">
+                <button *ngIf="heroe.vivo" class="btn btn-outline-success w-50" type="button" (click)="heroe.vivo = false">
               <i class="fa fa-smile-wink"></i>
               Vivo
             </button>
-                <button class="btn btn-outline-danger w-50" type="button">
+                <button *ngIf="!heroe.vivo" class="btn btn-outline-danger w-50" type="button" (click)="heroe.vivo = true">
               <i class="fa fa-dizzy"></i>
               Muerto
             </button>
@@ -40,7 +40,7 @@
             <hr>
             <div class="form-group text-center">
                 <button type="submit" class="btn btn-primary w-25">
-                <i class="fa fa-save"></i>Guardar</button>
+                <i class="fa fa-save"></i> Guardar</button>
             </div>
         </form>
     </div>
