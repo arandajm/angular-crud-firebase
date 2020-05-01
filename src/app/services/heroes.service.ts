@@ -32,4 +32,21 @@ export class HeroesService {
     delete newHero.id;
     return this.http.put(this.getUrl(`/heroes/${heroe.id}`), newHero);
   }
+
+  getAll() {
+    return this.http
+      .get(this.getUrl('/heroes'))
+      .pipe(map((resp) => this.transformHeroData(resp)));
+  }
+
+  private transformHeroData(heroesObj) {
+    let heroArray: HeroeModel[] = [];
+    // get an array with the object keys
+    Object.keys(heroesObj).forEach((key) => {
+      let hero: HeroeModel = heroesObj[key];
+      hero.id = key;
+      heroArray.push(hero);
+    });
+    return heroArray;
+  }
 }

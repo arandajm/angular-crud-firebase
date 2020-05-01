@@ -1,11 +1,12 @@
 <h1>Listado de héroes</h1>
-<hr>
+<hr />
 
 <div class="row">
     <div class="col">
         <button class="btn btn-primary float-right" [routerLink]="['/heroe/nuevo']">
       <i class="fa fa-plus"></i>
-      Agregar</button>
+      Agregar
+    </button>
     </div>
 </div>
 
@@ -21,12 +22,22 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
+            <tr *ngFor="let heroe of heroes; let i = index">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ heroe.nombre }}</td>
+                <td>{{ heroe.poder }}</td>
+                <td>
+                    <span *ngIf="heroe.vivo" class="badge badge-success">Vivo</span>
+                    <span *ngIf="!heroe.vivo" class="badge badge-danger">Muerto</span>
+                </td>
+                <td>
+                    <button class="btn btn-secondary">
+            <i class="fa fa-pen"></i>
+          </button>
+                    <button class="btn btn-danger ml-1">
+            <i class="fa fa-trash"></i>
+          </button>
+                </td>
             </tr>
         </tbody>
     </table>
