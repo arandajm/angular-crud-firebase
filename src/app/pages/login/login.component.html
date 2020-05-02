@@ -1,7 +1,9 @@
 <div class="row login-container animated fadeInLeft fast">
     <div class="col-6">
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-            <h1>Bienvenido!!</h1>
+            <h1 class="text-center"><i class="fas fa-rocket fa-1x"></i> HeroApp</h1>
+            <h2>Login</h2>
+            <hr />
             <div class="form-group">
                 <label>Email address</label>
                 <input type="email" class="form-control" [(ngModel)]="user.email" name="email" #email="ngModel" email required />
