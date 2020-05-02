@@ -14,7 +14,7 @@
             <div class="form-group">
                 <label>Password</label>
                 <input type="password" class="form-control" [(ngModel)]="user.password" name="password" #password="ngModel" required minlength="6" />
-                <span class="text-danger" *ngIf="loginForm.submitted && password.errors">
+                <span class="text-danger animated fadeIn" *ngIf="loginForm.submitted && password.errors">
           <span *ngIf="password.errors['required']"
             >La contraseña es obligatoria</span
           >
