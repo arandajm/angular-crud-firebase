@@ -34,7 +34,7 @@
                     <button class="btn btn-secondary" [routerLink]="['/heroe', heroe.id]">
             <i class="fa fa-pen"></i>
           </button>
-                    <button class="btn btn-danger ml-1">
+                    <button class="btn btn-danger ml-1" (click)="delete(heroe, i)">
             <i class="fa fa-trash"></i>
           </button>
                 </td>

@@ -45,6 +45,10 @@ export class HeroesService {
       .pipe(map((resp) => resp));
   }
 
+  delete(id: string) {
+    return this.http.delete(this.getUrl(`/heroes/${id}`));
+  }
+
   private transformHeroData(heroesObj) {
     let heroArray: HeroeModel[] = [];
 
