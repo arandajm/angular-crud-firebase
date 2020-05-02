@@ -7,9 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroeComponent } from './pages/heroe/heroe.component';
 import { HeroesComponent } from './pages/heroes/heroes.component';
+import { LoginComponent } from './pages/login/login.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, HeroeComponent, HeroesComponent],
+  declarations: [AppComponent, HeroeComponent, HeroesComponent, LoginComponent, NavbarComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
