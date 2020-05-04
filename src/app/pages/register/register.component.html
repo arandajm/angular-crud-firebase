@@ -1,13 +1,25 @@
-<div class="row login-container animated fadeInLeft fast">
+<div class="row register-container animated fadeInRight fast">
     <div class="col-6">
-        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
             <h1 class="text-center"><i class="fas fa-rocket"></i> HeroApp</h1>
-            <h2>Login</h2>
+            <h2>Registro</h2>
             <hr />
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" [(ngModel)]="user.nombre" name="nombre" #nombre="ngModel" minlength="6" required />
+                <span class="text-danger animated fadeIn" *ngIf="registerForm.submitted && nombre.errors">
+          <span *ngIf="nombre.errors['required']"
+            >El nombre es obligatorio</span
+          >
+          <span *ngIf="nombre.errors['minlength']"
+            >El nombre debe de tener mas de 6 letras</span
+          >
+        </span>
+            </div>
             <div class="form-group">
                 <label>Email address</label>
                 <input type="email" class="form-control" [(ngModel)]="user.email" name="email" #email="ngModel" email required />
-                <span class="text-danger animated fadeIn" *ngIf="loginForm.submitted && email.errors">
+                <span class="text-danger animated fadeIn" *ngIf="registerForm.submitted && email.errors">
           <span *ngIf="email.errors['required']">El correo es obligatorio</span>
                 <span *ngIf="email.errors['email']">El email debe cumplir el formato de correo electronico</span
           >
@@ -16,7 +28,7 @@
             <div class="form-group">
                 <label>Password</label>
                 <input type="password" class="form-control" [(ngModel)]="user.password" name="password" #password="ngModel" required minlength="6" />
-                <span class="text-danger animated fadeIn" *ngIf="loginForm.submitted && password.errors">
+                <span class="text-danger animated fadeIn" *ngIf="registerForm.submitted && password.errors">
           <span *ngIf="password.errors['required']"
             >La contraseña es obligatoria</span
           >
@@ -30,9 +42,9 @@
                 <label class="form-check-label">Recuerdame</label>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Ingresar</button>
-                <a class="register-link ml-1" routerLink="/register">
-          ¿No tienes cuenta? Registrate.
+                <button type="submit" class="btn btn-primary">Registrar</button>
+                <a class="register-link ml-1" routerLink="/login">
+          ¿Tienes cuenta? Ingresa.
         </a>
             </div>
         </form>

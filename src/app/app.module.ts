@@ -9,9 +9,10 @@ import { HeroeComponent } from './pages/heroe/heroe.component';
 import { HeroesComponent } from './pages/heroes/heroes.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
-  declarations: [AppComponent, HeroeComponent, HeroesComponent, LoginComponent, NavbarComponent],
+  declarations: [AppComponent, HeroeComponent, HeroesComponent, LoginComponent, NavbarComponent, RegisterComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
